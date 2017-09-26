@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="492.0" prefWidth="720.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.josias.controller.ViewController">
+   <children>
+      <Label text="Cliente de Chat">
+         <font>
+            <Font name="Arial" size="32.0" />
+         </font>
+      </Label>
+      <GridPane alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Nome de Usuario:" />
+            <Label text="Endereço ip do servidor:" GridPane.rowIndex="1" />
+            <Label text="Porta do servidor:" GridPane.rowIndex="2" />
+            <TextField fx:id="txtUsuario" GridPane.columnIndex="1" />
+            <TextField fx:id="txtServidor" promptText="ex: localhost, &quot;127.26.05.01&quot;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtPorta" promptText="ex: 3456, 7000" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <Button fx:id="buttonConectar" mnemonicParsing="false" onAction="#conectar" text="Conectar ao servidor" />
+      <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="161.0" prefWidth="681.0" spacing="10.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Usuarios:" />
+                  <ListView fx:id="userList" prefHeight="145.0" prefWidth="100.0" />
+               </children>
+            </VBox>
+            <ScrollPane>
+               <content>
+                  <TextArea fx:id="flowFeed" disable="true" prefHeight="200.0" prefWidth="555.0" />
+               </content>
+            </ScrollPane>
+         </children>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="108.0" prefWidth="701.0" spacing="10.0">
+         <children>
+            <TextArea fx:id="txtMsg" prefHeight="108.0" prefWidth="514.0" />
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="155.0" spacing="10.0">
+               <children>
+                  <Button fx:id="buttonEnviar" disable="true" mnemonicParsing="false" onAction="#enviarMensagem" prefHeight="26.0" prefWidth="151.0" text="Enviar ao publico" />
+                  <Button fx:id="buttonParticular" disable="true" mnemonicParsing="false" text="Enviar em particular" />
+                  <Button fx:id="buttonDesconectar" disable="true" mnemonicParsing="false" prefHeight="26.0" prefWidth="151.0" text="Desconectar chat" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>
